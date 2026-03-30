@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist_Mono, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+})
 
 export const metadata: Metadata = {
   title: 'Portl | Fill Your Venue Every Night',
@@ -36,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
+      <body className={`${montserrat.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
