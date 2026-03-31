@@ -139,3 +139,111 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Ambient glow pulse ── */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50%      { opacity: 0.18; transform: scale(1.12); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* ── Gentle float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+/* ── Shimmer sweep (badges / highlights) ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Gradient background shift ── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ── Live indicator pulse ── */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(1.6); }
+}
+.animate-live-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Hero background slow zoom ── */
+@keyframes hero-zoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+.animate-hero-zoom {
+  animation: hero-zoom 20s ease-out forwards;
+}
+
+/* ── Progress bar fill ── */
+@keyframes bar-fill {
+  from { width: 0%; }
+}
+.animate-bar-fill {
+  animation: bar-fill 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Subtle border glow on cards ── */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(233, 221, 255, 0.08); }
+  50%      { border-color: rgba(233, 221, 255, 0.2); }
+}
+.animate-border-glow {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+/* ── Main CTA shimmer sweep + breathing glow ── */
+@keyframes cta-shimmer {
+  0%   { left: -100%; }
+  50%  { left: 150%; }
+  100% { left: 150%; }
+}
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(233,221,255,0.2), 0 0 40px rgba(233,221,255,0.1); }
+  50%      { box-shadow: 0 0 30px rgba(233,221,255,0.45), 0 0 60px rgba(233,221,255,0.2), 0 0 90px rgba(130,233,255,0.1); }
+}
+.animate-cta-glow {
+  animation: cta-glow 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.animate-cta-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.35) 55%,
+    transparent 80%
+  );
+  animation: cta-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
